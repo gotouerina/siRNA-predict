@@ -1,4 +1,6 @@
 # siRNA-predict
+![License](https://img.shields.io/badge/license-MIT-yellow) 
+
 A fast siRNA predictor in no model organisms. Files of sequences should be recongnized as FASTA format.
 
 ## Install
