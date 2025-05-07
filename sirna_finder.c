@@ -130,7 +130,7 @@ int main(int argc, char *argv[]) {
                 process_sequence(header, seq);
                 seqlen = 0;
             }
-            // 取 header (去掉 '>')，到第一个空白
+
             sscanf(line + 1, "%255s", header);
         } else {
             for (char *p = line; *p; ++p) {
