@@ -1,5 +1,5 @@
 # siRNA-predict
-A fast siRNA predictor in un-normal animal or plant
+A fast siRNA predictor in no model organisms. Files of sequences should be recongnized as FASTA format.
 
 ## Install
 
