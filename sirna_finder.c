@@ -7,7 +7,6 @@
 #define MAX_SEQ 200000
 #define SIRNA_LEN 21
 
-// 将 sense（21nt）反向互补到 anti（21+1 字节）
 void revcomp(const char *sense, char *anti) {
     for (int i = 0; i < SIRNA_LEN; i++) {
         char c = toupper((unsigned char)sense[SIRNA_LEN - 1 - i]);
@@ -23,7 +22,6 @@ void revcomp(const char *sense, char *anti) {
     anti[SIRNA_LEN] = '\0';
 }
 
-// 统计 s[start..start+len-1] 中 A/U 的个数
 int count_AU(const char *s, int start, int len) {
     int cnt = 0;
     for (int i = 0; i < len; i++) {
@@ -33,7 +31,7 @@ int count_AU(const char *s, int start, int len) {
     return cnt;
 }
 
-// 检查是否存在超过 max_run 个连续 G/C
+
 int has_long_GC(const char *s, int max_run) {
     int run = 0;
     for (int i = 0; s[i]; i++) {
@@ -48,7 +46,7 @@ int has_long_GC(const char *s, int max_run) {
     return 0;
 }
 
-// Ui-Tei 规则
+// Ui-Tei 
 int check_UiTei(const char *sense, const char *anti) {
     char a0 = anti[0];
     char s0 = toupper((unsigned char)sense[0]);
@@ -59,7 +57,7 @@ int check_UiTei(const char *sense, const char *anti) {
     return 1;
 }
 
-// Reynolds 规则
+// Reynolds 
 int check_Reynolds(const char *sense) {
     int gc = 0;
     for (int i = 0; i < SIRNA_LEN; i++) {
@@ -75,7 +73,7 @@ int check_Reynolds(const char *sense) {
     return 1;
 }
 
-// Amarzguioui 规则
+// Amarzguioui 
 int check_Amarz(const char *anti) {
     if (count_AU(anti, 0, 3) <= count_AU(anti, 18, 3)) return 0;
     if (anti[0] == 'U') return 0;
@@ -83,7 +81,7 @@ int check_Amarz(const char *anti) {
     return 1;
 }
 
-// 对单条序列应用三条规则，输出符合的 siRNA
+
 void process_sequence(const char *hdr, const char *seq) {
     int len = (int)strlen(seq);
     char sense[SIRNA_LEN + 1], anti[SIRNA_LEN + 1];
