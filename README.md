@@ -119,8 +119,7 @@ CDS_ID    Start    End    Mismatches    Guide    TargetSeq
    ```
 2. **Off‑target screen**  
    ```bash
-   ./offtarget_search siRNA_candidates.fa genome_CDS.fa 1 \
-     | head -n 20
+   ./offtarget_search siRNA_candidates.fa genome_CDS.fa 1 
    ```
 
 ---
