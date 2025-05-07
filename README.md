@@ -28,3 +28,6 @@ Just type
   
     <max_mismatch>:    integer ≥0
   
+# Cite
+
+Cite: Please cite website (https://github.com/gotouerina/siRNA-predict)) when you use this pipeline, there is no paper published now.
